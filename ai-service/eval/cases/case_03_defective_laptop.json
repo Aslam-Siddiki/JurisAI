@@ -1,0 +1,21 @@
+{
+  "case_id": "case_03_defective_laptop",
+  "category": "Goods/Service",
+  "party_a_statement": "Bought a refurbished laptop from B for 25000 INR. The motherboard failed within 4 days. Seller refuses replacement or refund.",
+  "party_b_statement": "Buyer dropped the laptop causing internal motherboard fracture. Damage is not covered under our 30-day warranty.",
+  "evidence": [
+    {
+      "id": "B-1",
+      "type": "document",
+      "description": "Authorized Service Center Engineer Report",
+      "text": "Diagnostic Report #781: Physical drop impact mark on lower right chassis corner resulting in broken trace and motherboard crack. User-induced damage."
+    },
+    {
+      "id": "B-2",
+      "type": "receipt",
+      "description": "Warranty terms signed by buyer",
+      "text": "Warranty terms: Physical drop impact or liquid damage voids all replacement warranties."
+    }
+  ],
+  "expected_finding": "favours_B"
+}

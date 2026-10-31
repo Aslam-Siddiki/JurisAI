@@ -1,0 +1,21 @@
+{
+  "case_id": "case_14_unreturned_borrowed_tools",
+  "category": "Other",
+  "party_a_statement": "Lent professional camera lens worth 35000 INR to B for weekend shoot. B returned it with cracked glass element.",
+  "party_b_statement": "The lens was already loose and cracked inside the case when handed over to me.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "image",
+      "description": "Inspection photo taken at handover",
+      "text": "High-res photograph taken 10 minutes before handing lens to B showing pristine front and rear optical elements."
+    },
+    {
+      "id": "A-2",
+      "type": "chat",
+      "description": "WhatsApp apology message from B",
+      "text": "WhatsApp message from B on shoot day: 'Man I am so sorry, my assistant tripped on the tripod and the lens hit the floor. Will get it fixed.'"
+    }
+  ],
+  "expected_finding": "favours_A"
+}

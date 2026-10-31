@@ -1,0 +1,21 @@
+{
+  "case_id": "case_06_catering_cancellation",
+  "category": "Goods/Service",
+  "party_a_statement": "Booked B for catering wedding dinner on 15 Feb. B cancelled 24 hours prior via SMS, ruining the event. I demand full 40000 INR deposit back plus compensation.",
+  "party_b_statement": "Unforeseen family emergency arose; I offered a replacement caterer but A declined.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "receipt",
+      "description": "Catering advance payment receipt of 40000 INR",
+      "text": "Payment Receipt #881: 40000 INR advance received for 15 Feb wedding dinner event. Non-performance requires 100% refund."
+    },
+    {
+      "id": "A-2",
+      "type": "chat",
+      "description": "SMS cancellation sent by B on 14 Feb",
+      "text": "SMS from B: 'Sorry cannot cater your event tomorrow due to internal crisis. Please manage alternate.'"
+    }
+  ],
+  "expected_finding": "favours_A"
+}

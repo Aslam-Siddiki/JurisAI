@@ -1,0 +1,21 @@
+{
+  "case_id": "case_15_hotel_booking_noshow",
+  "category": "Goods/Service",
+  "party_a_statement": "Booked hotel room for 8000 INR. Arrived at 11 PM and hotel had given room away to someone else. Had to sleep in lobby.",
+  "party_b_statement": "Guest did not check in by standard 6 PM hold time and did not inform us of late arrival, releasing the room as per policy.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "document",
+      "description": "Prepaid Booking Confirmation Voucher",
+      "text": "Booking Voucher: 100% Prepaid Room Guaranteed for Late Arrival up to 2:00 AM next day. Amount: 8000 INR."
+    },
+    {
+      "id": "A-2",
+      "type": "receipt",
+      "description": "Credit card receipt of full prepayment",
+      "text": "Bank statement showing 8000 INR debited for guaranteed reservation."
+    }
+  ],
+  "expected_finding": "favours_A"
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "case_07_car_repair_authorized_work",
+  "category": "Goods/Service",
+  "party_a_statement": "Mechanic B charged me 18000 INR for AC repairs I never authorized. I only brought the car for oil change.",
+  "party_b_statement": "Customer explicitly approved full AC compressor replacement via WhatsApp audio and text when notified of gas leak.",
+  "evidence": [
+    {
+      "id": "B-1",
+      "type": "chat",
+      "description": "WhatsApp chat history with clear written authorization",
+      "text": "WhatsApp Chat on 12 Feb. Mechanic: 'AC compressor is seized, replacement costs 18000 INR. Should we proceed?' Customer A: 'Yes please proceed with compressor replacement so AC works properly.'"
+    },
+    {
+      "id": "B-2",
+      "type": "receipt",
+      "description": "Supplier invoice for new compressor part",
+      "text": "AutoParts Distributor Invoice #9012 for Denso AC Compressor: 14500 INR."
+    }
+  ],
+  "expected_finding": "favours_B"
+}

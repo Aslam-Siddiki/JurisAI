@@ -1,0 +1,10 @@
+node_modules
+.git
+.github
+.env
+uploads/*
+!uploads/.gitkeep
+ai-service/.venv
+ai-service/__pycache__
+ai-service/.pytest_cache
+

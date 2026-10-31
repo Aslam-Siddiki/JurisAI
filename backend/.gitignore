@@ -1,0 +1,12 @@
+# Backend Secrets & Environment
+.env
+.env.*
+.env.local
+!**/.env.example
+!.env.example
+
+node_modules/
+uploads/*
+!uploads/.gitkeep
+*.log
+

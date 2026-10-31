@@ -1,0 +1,21 @@
+{
+  "case_id": "case_01_freelance_unpaid",
+  "category": "Payment",
+  "party_a_statement": "I designed and delivered the company website on 4 March. Client refuses to pay final invoice of 15000 INR despite using the website live.",
+  "party_b_statement": "I never received the source code files and the website had bugs.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "receipt",
+      "description": "Invoice #104 dated 4 March 2026 for 15000 INR",
+      "text": "Tax Invoice 104: Web Design Services. Total Due: 15000 INR. Dated: 2026-03-04. Bank account IFSC: HDFC0001234."
+    },
+    {
+      "id": "A-2",
+      "type": "chat",
+      "description": "WhatsApp confirmation from B approving deployment",
+      "text": "B says: 'The site looks fantastic on live domain! Send across invoice, I will clear it by Friday.' Dated 2026-03-04."
+    }
+  ],
+  "expected_finding": "favours_A"
+}

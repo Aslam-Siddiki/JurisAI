@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Central vertical fulcrum pillar -->
+  <line x1="12" y1="3" x2="12" y2="21" />
+  <!-- Base stand -->
+  <path d="M8 21h8" />
+  <!-- Center top pivot ring/point -->
+  <circle cx="12" cy="4" r="1" fill="#38bdf8" />
+  <!-- Horizontal balance beam -->
+  <line x1="3" y1="7" x2="21" y2="7" />
+  <!-- Left pan cords -->
+  <line x1="3" y1="7" x2="6" y2="14" />
+  <line x1="9" y1="7" x2="6" y2="14" />
+  <!-- Left pan -->
+  <path d="M3 14c0 2 1.3 3 3 3s3-1 3-3z" />
+  <!-- Right pan cords -->
+  <line x1="15" y1="7" x2="18" y2="14" />
+  <line x1="21" y1="7" x2="18" y2="14" />
+  <!-- Right pan -->
+  <path d="M15 14c0 2 1.3 3 3 3s3-1 3-3z" />
+</svg>

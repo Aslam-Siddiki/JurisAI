@@ -1,0 +1,15 @@
+{
+  "case_id": "case_13_freelance_scope_creep",
+  "category": "Payment",
+  "party_a_statement": "Developer A built extra mobile screens not in original scope. Demands additional 10000 INR.",
+  "party_b_statement": "Those 3 screens were natural extensions of login/signup. We never agreed to additional charges in writing.",
+  "evidence": [
+    {
+      "id": "B-1",
+      "type": "document",
+      "description": "Original Statement of Work (SOW)",
+      "text": "SOW Section 4: Fixed price 40000 INR for complete user flow. Any out-of-scope work requires prior written change order signed by both parties."
+    }
+  ],
+  "expected_finding": "favours_B"
+}

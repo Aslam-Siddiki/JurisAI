@@ -1,0 +1,21 @@
+{
+  "case_id": "case_12_tenant_painting_dispute",
+  "category": "Rental/Deposit",
+  "party_a_statement": "Landlord B refuses to return 20000 INR deposit. House was handed over painted and pristine.",
+  "party_b_statement": "Tenant left deep wall holes from TV mounting and uncleaned kitchen grease. Painting cost 20000 INR.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "receipt",
+      "description": "Painter receipt paid by tenant before handover",
+      "text": "Invoice #41 from Asian Paints applicator: 12000 INR for full interior repainting paid by tenant on 28 Feb 2026."
+    },
+    {
+      "id": "A-2",
+      "type": "image",
+      "description": "Video handover proof showing painted rooms",
+      "text": "Key handover video showing freshly painted walls with no TV mounting holes."
+    }
+  ],
+  "expected_finding": "favours_A"
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "case_11_event_photography_delay",
+  "category": "Goods/Service",
+  "party_a_statement": "Photographer B delivered wedding album 6 months late. Several ceremony moments were missing.",
+  "party_b_statement": "Delivery was delayed because couple did not select shortlist photos for 4 months. All 800 raw photos were delivered on time.",
+  "evidence": [
+    {
+      "id": "B-1",
+      "type": "chat",
+      "description": "Email thread showing photographer requesting photo shortlist",
+      "text": "Email on 10 Oct 2025: 'Please select 100 photos for album binding'. Reminder sent 15 Nov, 20 Dec. Couple sent shortlist only on 1 Feb 2026."
+    },
+    {
+      "id": "B-2",
+      "type": "document",
+      "description": "Google Drive delivery timestamp of all raw photos",
+      "text": "Cloud delivery confirmation: 840 RAW files accessed by client on 5 Oct 2025 (48 hours after wedding)."
+    }
+  ],
+  "expected_finding": "favours_B"
+}

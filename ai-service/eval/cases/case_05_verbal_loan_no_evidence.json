@@ -1,0 +1,8 @@
+{
+  "case_id": "case_05_verbal_loan_no_evidence",
+  "category": "Payment",
+  "party_a_statement": "I gave cash of 20000 INR to my friend B last December. He refuses to return it.",
+  "party_b_statement": "I never took any cash loan from A. He has fabricated this story.",
+  "evidence": [],
+  "expected_finding": "insufficient_evidence"
+}

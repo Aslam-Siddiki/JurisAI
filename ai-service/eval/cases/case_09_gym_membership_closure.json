@@ -1,0 +1,21 @@
+{
+  "case_id": "case_09_gym_membership_closure",
+  "category": "Contract",
+  "party_a_statement": "Paid annual gym membership of 15000 INR. The gym abruptly shut down after 2 months. Owner B vanished.",
+  "party_b_statement": "Gym temporarily closed for renovation; members will get extension when reopened.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "receipt",
+      "description": "Annual gym membership tax receipt",
+      "text": "FitLife Gym Receipt: Annual membership 15000 INR. Valid from 1 Jan 2026 to 31 Dec 2026."
+    },
+    {
+      "id": "A-2",
+      "type": "image",
+      "description": "Photo of premises locked with landlord notice",
+      "text": "Photograph of gym door locked with court eviction notice for default of commercial rent."
+    }
+  ],
+  "expected_finding": "favours_A"
+}

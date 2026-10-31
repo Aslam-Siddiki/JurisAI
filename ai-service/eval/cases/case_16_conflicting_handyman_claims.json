@@ -1,0 +1,21 @@
+{
+  "case_id": "case_16_conflicting_handyman_claims",
+  "category": "Contract",
+  "party_a_statement": "Paid handyman 5000 INR to fix plumbing leak. Leak worsened within 2 hours.",
+  "party_b_statement": "I fixed the pipe joint properly; the second leak is from the ceiling cistern which is an independent building defect.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "chat",
+      "description": "Chat complaint sent 2 hours after work",
+      "text": "Photo of water puddle on bathroom floor sent to B: 'Water is still leaking everywhere.'"
+    },
+    {
+      "id": "B-1",
+      "type": "image",
+      "description": "Handyman work photo of newly replaced PVC joint",
+      "text": "Close-up photo of new joint showing dry seal and pressure tested."
+    }
+  ],
+  "expected_finding": "split"
+}

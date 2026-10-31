@@ -1,0 +1,21 @@
+{
+  "case_id": "case_10_used_phone_purchase",
+  "category": "Goods/Service",
+  "party_a_statement": "Bought used smartphone from B for 18000 INR. It was blacklisted on network within a week.",
+  "party_b_statement": "I sold the phone in good faith. I provided original box and bill. I have no control over network blocking.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "document",
+      "description": "Telecom operator IMEI blacklist report",
+      "text": "Carrier Verification Letter: IMEI 358912301923019 is blocked on Indian networks due to reported loss by previous registered owner."
+    },
+    {
+      "id": "A-2",
+      "type": "receipt",
+      "description": "Google Pay transfer to B for 18000 INR",
+      "text": "GPay Transaction Ref 882199: 18000 INR sent to B for Mobile Purchase."
+    }
+  ],
+  "expected_finding": "favours_A"
+}

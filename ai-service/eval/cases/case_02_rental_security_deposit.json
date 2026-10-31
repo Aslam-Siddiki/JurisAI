@@ -1,0 +1,21 @@
+{
+  "case_id": "case_02_rental_security_deposit",
+  "category": "Rental/Deposit",
+  "party_a_statement": "My landlord B deducted 30000 INR from my 50000 INR security deposit citing normal repainting costs after 2 years of tenancy.",
+  "party_b_statement": "The tenant scratched walls and stained carpets. Repainting cost me 30000 INR.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "document",
+      "description": "Rental Agreement Clause 8",
+      "text": "Clause 8: Normal wear and tear shall not be deducted from the security deposit upon lease termination."
+    },
+    {
+      "id": "A-2",
+      "type": "image",
+      "description": "Move-out inspection photos showing clean walls",
+      "text": "Move-out timestamped inspection photographs: Walls intact, clean condition with negligible routine scuffs."
+    }
+  ],
+  "expected_finding": "favours_A"
+}

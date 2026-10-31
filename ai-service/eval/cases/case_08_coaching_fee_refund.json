@@ -1,0 +1,21 @@
+{
+  "case_id": "case_08_coaching_fee_refund",
+  "category": "Contract",
+  "party_a_statement": "Enrolled in coaching institute B for 60000 INR for 1 year. Dropped out after 10 days due to substandard teaching. Institute refuses any prorated refund.",
+  "party_b_statement": "Our admission form clearly states 'Fees once paid are non-refundable under any circumstances'.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "receipt",
+      "description": "Receipt of 60000 INR payment",
+      "text": "Fee Receipt #319: Total tuition fees 60000 INR paid on 2026-02-01."
+    },
+    {
+      "id": "A-2",
+      "type": "document",
+      "description": "Dropout letter submitted on day 10",
+      "text": "Formal notice of course withdrawal submitted to front desk on 10th February with acknowledgement stamp."
+    }
+  ],
+  "expected_finding": "favours_A"
+}

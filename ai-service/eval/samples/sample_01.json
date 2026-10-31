@@ -1,0 +1,20 @@
+{
+  "case_id": "case_sample_01",
+  "category": "Payment",
+  "party_a_statement": "I delivered the responsive website design on 4 March. B owes 12000 INR and has refused payment.",
+  "party_b_statement": "The website had layout bugs and was delayed. I withheld 12000 INR until repairs were made.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "receipt",
+      "description": "Invoice #402 for Web Design sent to B on 4 March",
+      "text": "Invoice 402: Web Design & Frontend Dev. Amount: 12000 INR. Date: 2026-03-04. Bank transfer details attached."
+    },
+    {
+      "id": "B-1",
+      "type": "chat",
+      "description": "WhatsApp chat screenshot on 5 March reporting bugs",
+      "text": "Message on 5 March: 'Hey A, the mobile navigation is broken. Please fix it before I transfer the remaining 12000 INR.'"
+    }
+  ]
+}

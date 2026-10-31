@@ -1,0 +1,9 @@
+{
+  "name": "jurisai-ai-service",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "python -m app.main",
+    "dev": "python -m app.main",
+    "eval": "python -m eval.run"
+  }
+}

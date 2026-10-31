@@ -1,0 +1,26 @@
+{
+  "case_id": "case_sample_02",
+  "category": "Rental/Deposit",
+  "party_a_statement": "I vacated the apartment on 31 January and requested my security deposit of 30000 rupees back. B refuses to return it.",
+  "party_b_statement": "Tenant left walls marked and kitchen tap leaking. Repair costs exceeded deposit.",
+  "evidence": [
+    {
+      "id": "A-1",
+      "type": "receipt",
+      "description": "Bank transfer receipt of security deposit",
+      "text": "UPI Transfer of 30000 INR to Landlord on 2025-02-01. Ref: UPI998124."
+    },
+    {
+      "id": "A-2",
+      "type": "chat",
+      "description": "Handover acknowledgment message",
+      "text": "Message dated 31 Jan: 'Handover complete. Photos attached.' Landlord replied: 'Keys received.'"
+    },
+    {
+      "id": "B-1",
+      "type": "other",
+      "description": "Landlord handwritten notes of repair estimates",
+      "text": "Painting and tap repairs: approx 30000 INR. No contractor bills."
+    }
+  ]
+}
