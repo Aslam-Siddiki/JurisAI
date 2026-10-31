@@ -255,7 +255,7 @@ To configure MongoDB Atlas:
 Example:
 
 ```env
-MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@cluster.mongodb.net/jurisai
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/jurisai
 ```
 
 Replace the placeholders with your actual database credentials.

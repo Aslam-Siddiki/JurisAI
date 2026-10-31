@@ -40,11 +40,11 @@ Cloud platforms (Render, Railway, AWS, Vercel) use dynamic outbound IPs. You mus
 4. Select **Node.js** as the driver.
 5. Copy the connection string. It will look like this:
    ```
-   mongodb+srv://<username>:<password>@cluster0.abcde.mongodb.net/?retryWrites=true&w=majority
+   mongodb+srv://<username>:<password>@<cluster-host>/?retryWrites=true&w=majority
    ```
 6. Add the database name `/jurisai` right before the `?` query string:
    ```
-   mongodb+srv://jurisai_user:YOUR_PASSWORD@cluster0.abcde.mongodb.net/jurisai?retryWrites=true&w=majority
+   mongodb+srv://<username>:<password>@<cluster-host>/jurisai?retryWrites=true&w=majority
    ```
 
 ---
@@ -59,7 +59,7 @@ JurisAI includes a diagnostic CLI test script that verifies:
 ### How to test:
 1. Open your `.env` (or `backend/.env`) file and set:
    ```env
-   MONGO_URI=mongodb+srv://your_user:your_password@cluster0.abcde.mongodb.net/jurisai?retryWrites=true&w=majority
+   MONGO_URI=mongodb+srv://<username>:<password>@<cluster-host>/jurisai?retryWrites=true&w=majority
    ```
 2. Run the test command:
    ```bash
@@ -71,7 +71,7 @@ JurisAI includes a diagnostic CLI test script that verifies:
           JurisAI — MongoDB Atlas Connection Diagnostic        
    ============================================================
    [1] Configuration Check:
-       Target URI: mongodb+srv://your_user:******@cluster0.abcde.mongodb.net/jurisai
+       Target URI: mongodb+srv://<username>:******@<cluster-host>/jurisai
        Protocol: Cloud MongoDB Atlas (SRV / TLS)
        ✅ URI syntax format is valid.
 
