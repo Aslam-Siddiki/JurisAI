@@ -500,8 +500,8 @@ export const evaluateCase = async (req, res) => {
       return res.status(404).json({ error: "Case not found." });
     }
 
-    const isClaimant = caseDoc.claimant.toString() === userId;
-    const isRespondent = caseDoc.respondent && caseDoc.respondent.toString() === userId;
+    const isClaimant = (caseDoc.claimant?._id || caseDoc.claimant)?.toString() === userId;
+    const isRespondent = (caseDoc.respondent?._id || caseDoc.respondent)?.toString() === userId;
 
     if (!isClaimant && !isRespondent) {
       return res.status(403).json({ error: "Forbidden: You are not a participant in this case." });
@@ -686,8 +686,8 @@ export const getCaseDecision = async (req, res) => {
       return res.status(404).json({ error: "Case not found." });
     }
 
-    const isClaimant = caseDoc.claimant.toString() === userId;
-    const isRespondent = caseDoc.respondent && caseDoc.respondent.toString() === userId;
+    const isClaimant = (caseDoc.claimant?._id || caseDoc.claimant)?.toString() === userId;
+    const isRespondent = (caseDoc.respondent?._id || caseDoc.respondent)?.toString() === userId;
 
     if (!isClaimant && !isRespondent) {
       return res.status(403).json({ error: "Forbidden: You are not an authorized participant in this case." });
@@ -727,8 +727,8 @@ export const respondToDecision = async (req, res) => {
       return res.status(404).json({ error: "Case not found." });
     }
 
-    const isClaimant = caseDoc.claimant.toString() === userId;
-    const isRespondent = caseDoc.respondent && caseDoc.respondent.toString() === userId;
+    const isClaimant = (caseDoc.claimant?._id || caseDoc.claimant)?.toString() === userId;
+    const isRespondent = (caseDoc.respondent?._id || caseDoc.respondent)?.toString() === userId;
 
     if (!isClaimant && !isRespondent) {
       return res.status(403).json({ error: "Forbidden: You are not an authorized participant." });
