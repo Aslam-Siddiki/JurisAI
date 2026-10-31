@@ -12,6 +12,7 @@ import {
   sendDecisionReadyEmail,
   sendDisputeResolvedEmail,
 } from "../services/emailService.js";
+import { evaluateDisputeLocally } from "../services/evaluationFallback.js";
 import { UPLOAD_DIR } from "../middleware/upload.js";
 
 const getEvidenceFilePath = (fileUrl) => {
@@ -565,26 +566,38 @@ export const evaluateCase = async (req, res) => {
     const aiServiceUrl = process.env.AI_SERVICE_URL || "http://127.0.0.1:8000";
     const serviceKey = process.env.AI_SERVICE_KEY || process.env.SERVICE_KEY || "secret_internal_service_key";
 
-    let aiResponse;
+    let report;
     try {
-      aiResponse = await axios.post(`${aiServiceUrl}/decide`, aiPayload, {
+      const aiResponse = await axios.post(`${aiServiceUrl}/decide`, aiPayload, {
         headers: {
           "Content-Type": "application/json",
           "X-Service-Key": serviceKey,
         },
-        timeout: 90000, // 90 seconds for OCR/embedding/LLM pipeline
+        timeout: 25000, // 25s timeout for AI service call
       });
+      report = aiResponse.data;
     } catch (aiErr) {
-      // Rollback status to ready_for_evaluation
-      caseDoc.status = "ready_for_evaluation";
-      await caseDoc.save().catch(() => {});
-      const errDetail = aiErr.response?.data?.detail || aiErr.message;
-      return res.status(502).json({
-        error: `AI Evaluation Service Error: ${errDetail}`,
-      });
+      console.warn(`[AI Service Notice] External AI service at ${aiServiceUrl} unavailable (${aiErr.message}). Engaging resilient built-in ADR evaluation engine...`);
+      try {
+        report = evaluateDisputeLocally({
+          caseId: caseDoc._id.toString(),
+          category: caseDoc.category || "Other",
+          partyAStatement: submissionA.statement,
+          partyBStatement: submissionB.statement,
+          evidence: allEvidence,
+        });
+      } catch (fallbackErr) {
+        console.error("[evaluateCase Local Fallback Error]:", fallbackErr);
+        // Rollback status to ready_for_evaluation
+        caseDoc.status = "ready_for_evaluation";
+        await caseDoc.save().catch(() => {});
+        const errDetail = aiErr.response?.data?.detail || aiErr.message;
+        return res.status(502).json({
+          error: `AI Evaluation Service Error: ${errDetail}`,
+        });
+      }
     }
 
-    const report = aiResponse.data;
     const isNeedsReview = report.overall_verdict === "needs_human_review";
 
     // Save or update Decision document

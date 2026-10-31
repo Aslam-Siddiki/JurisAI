@@ -17,7 +17,7 @@ services:
       - key: CLIENT_URL
         sync: false
       - key: AI_SERVICE_URL
-        sync: false
+        sync: false # Set to your deployed AI service URL (or leave blank to use resilient built-in evaluator)
       - key: AI_SERVICE_KEY
         generateValue: true
       - key: SMTP_HOST
@@ -30,3 +30,20 @@ services:
         sync: false
     healthCheckPath: /api/health
 
+  # JurisAI Python AI Pipeline Service (Optional Dedicated Microservice)
+  - type: web
+    name: jurisai-ai
+    env: python
+    plan: free
+    region: oregon
+    rootDir: ai-service
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SERVICE_KEY
+        sync: false
+      - key: LLM_MODEL
+        value: gemini-1.5-flash
+      - key: LLM_API_KEY
+        sync: false
+    healthCheckPath: /health
