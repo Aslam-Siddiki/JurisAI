@@ -139,11 +139,22 @@ export const getCorsOptions = () => {
         return callback(null, true); // Permissive in dev
       }
 
-      // In production, strictly match configured origins
-      if (allowedOrigins.includes(origin)) {
+      // In production, strictly match configured origins, allow wildcards or vercel.app domains
+      if (
+        allowedOrigins.includes("*") ||
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app") ||
+        allowedOrigins.some((allowed) => {
+          if (allowed.startsWith("*.")) {
+            return origin.endsWith(allowed.slice(1));
+          }
+          return allowed === origin;
+        })
+      ) {
         return callback(null, true);
       }
 
+      console.warn(`[CORS Blocked] Origin not authorized: ${origin}`);
       return callback(new Error(`CORS blocked for unauthorized origin: ${origin}`));
     },
     credentials: true,
