@@ -1,115 +1,345 @@
-# JurisAI — Resolve. Explain. Move on.
+# ⚖️ JurisAI – AI-Powered Digital Alternative Dispute Resolution Platform
 
-> **AI-Assisted Resolution of Small Civil Disputes**  
-> Fundamentals of AI Course Project
+**Resolve Small Civil Disputes Fairly, Faster, and Without Court Battles.**
 
----
+JurisAI is an AI-powered Digital Alternative Dispute Resolution (ADR) platform designed to simplify the resolution of small civil disputes through intelligent dispute analysis, evidence evaluation, financial reconciliation, and AI-assisted settlement recommendations.
 
-## 1. Overview
-JurisAI is an explainable decision-support web system for small civil disputes (unpaid money, defective goods, security deposit refunds). Disputing parties submit statements and evidence confidentially, and an AI-driven, deterministic hybrid pipeline evaluates both sides to produce an explainable, non-binding advisory decision.
+The platform provides a digital environment where claimants and respondents can submit disputes, upload supporting evidence, review opposing statements, and work towards fair and mutually acceptable settlements.
 
 ---
 
-## 2. Core AI Algorithms
-1. **Dense Semantic Retrieval:** `sentence-transformers` embedding legal statutes into 384-dimensional dense vectors.
-2. **FAISS Vector Search:** Cosine similarity nearest-neighbor lookup with a strict threshold gate ($\tau = 0.65$).
-3. **Tripartite Evidence Weighing:** $\text{ItemScore} = \text{Relevance} \times \text{Reliability} \times \text{Corroboration}$.
-4. **Probabilistic-OR Side Accumulator:** $\text{SideScore} = 1 - \prod (1 - \text{ItemScore}_i)$ to combine multiple independent evidence items.
-5. **Counterfactual Swap Test:** Runs verdict with party labels inverted to measure and guard against LLM bias.
-6. **Confidence & Evidence Gating:** Automatically flags cases with insufficient evidence or low confidence ($< 0.6$) to human review.
+## 🚀 Key Features
+
+### 1. Digital Dispute Submission
+- Submit disputes through an intuitive interface.
+- Select dispute categories such as financial disputes, rental disputes, property disputes, and service-related disputes.
+- Provide detailed descriptions of disputes.
+- Register claimant and respondent information.
+
+### 2. AI-Powered Dispute Analysis
+- Analyze claimant and respondent statements.
+- Identify conflicting information and inconsistencies.
+- Generate structured dispute summaries.
+- Provide neutral and objective AI-assisted insights.
+
+### 3. Evidence Management
+- Upload supporting documents and evidence.
+- Organize evidence submitted by both parties.
+- Review relevant documents during dispute evaluation.
+
+### 4. Financial Reconciliation
+- Identify financial differences between opposing parties.
+- Compare claimed amounts, payments, refunds, and outstanding balances.
+- Generate structured financial summaries.
+
+### 5. AI-Assisted Settlement Recommendations
+- Generate possible compromise settlement suggestions.
+- Consider statements, evidence, and financial information.
+- Support fair and mutually acceptable dispute resolution.
+
+### 6. Reference Cases
+- Access relevant historical reference cases.
+- Use previous dispute outcomes as supporting context.
+- Improve the consistency of settlement recommendations.
+
+### 7. Dispute Management
+- View submitted disputes.
+- Track dispute information and progress.
+- Access claimant and respondent details.
 
 ---
 
-## 3. Architecture & Repository Structure
-- `frontend/`: React (Vite) + Tailwind CSS interface.
-- `backend/`: Node.js (Express + Mongoose) REST API for authentication, case lifecycle, and file uploads.
-- `ai-service/`: Python 3 (FastAPI) AI evaluation pipeline.
-- `shared/` & `legal_corpus/`: Structured statutes and legal guidelines.
-- `AGENT_RULES.md`: Core rules and viva-readiness guidelines for AI agent development.
+## 🛠️ Technology Stack
+
+| Component | Technologies |
+|---|---|
+| Frontend | React.js, Vite, HTML, CSS, JavaScript |
+| Core Backend | Node.js, Express.js |
+| AI Microservice | Python, FastAPI |
+| Database | MongoDB Atlas |
+| Database Integration | Mongoose |
+| AI Integration | LLM API / Ollama |
+| API Communication | REST API |
+| Version Control | Git, GitHub |
+| Frontend Deployment | Vercel |
+| Backend Deployment | Render |
 
 ---
 
-## 4. Quick Start & Local Execution
+## 🏗️ Project Architecture
 
-### Single Command (Start Everything)
-You can launch all 3 services (**AI Service**, **Backend**, and **Frontend**) concurrently with a single command from the root directory:
+JurisAI follows a modular architecture consisting of three major application components.
+
+```text
+                 JURISAI PLATFORM
+                        |
+              React Frontend (Vite)
+                  Port: 5173
+                        |
+                 Node.js Backend
+                  Port: 5000
+                        |
+             +----------+----------+
+             |                     |
+        MongoDB Atlas         Python AI Service
+                                  Port: 8000
+                                      |
+                              AI / NLP Processing
+                                      |
+                              Settlement Analysis
+```
+
+**Frontend:** Provides the user interface for dispute submission, evidence management, and dispute tracking.
+
+**Node.js Backend:** Handles API requests, authentication (if enabled), business logic, and database operations.
+
+**Python AI Microservice:** Handles AI-powered dispute analysis, NLP processing, and settlement recommendation workflows.
+
+**MongoDB Atlas:** Stores application data in a cloud-hosted MongoDB database.
+
+---
+
+## 📁 Project Structure
+
+```text
+JURISAI/
+│
+├── ai-service/
+│   └── Python AI microservice
+│
+├── backend/
+│   └── Node.js Express backend
+│       └── server.js
+│
+├── frontend/
+│   └── React + Vite frontend
+│
+├── node_modules/
+│
+├── .env
+├── .env.example
+├── .gitignore
+├── .dockerignore
+│
+├── Dockerfile
+├── render.yaml
+├── Procfile
+│
+├── package.json
+├── package-lock.json
+│
+├── DEPLOYMENT.md
+├── JURISAI_SPEC.md
+└── README.md
+```
+
+---
+
+## ⚙️ Installation and Setup
+
+### Prerequisites
+
+Install the following before running the application:
+
+- Node.js and npm
+- Python 3.10+
+- MongoDB Atlas account
+- Git
+
+### 1. Clone the Repository
 
 ```bash
-# 1. Install all dependencies across all 3 folders:
-npm run install:all
+git clone https://github.com/YOUR_USERNAME/JurisAI.git
+```
 
-# 2. Start AI Service, Backend, and Frontend together:
+Navigate to the project directory:
+
+```bash
+cd JurisAI
+```
+
+### 2. Install Backend Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env` file in the project root using `.env.example` as a reference.
+
+Example configuration:
+
+```env
+PORT=5000
+NODE_ENV=development
+
+MONGODB_URI=your_mongodb_atlas_connection_string
+
+FRONTEND_URL=http://localhost:5173
+
+AI_SERVICE_URL=http://127.0.0.1:8000
+
+# Add other API credentials required by your application
+```
+
+**Important:** Never upload `.env` files, API keys, database credentials, or other sensitive information to GitHub.
+
+### 4. Configure Python AI Microservice
+
+Navigate to the AI service directory:
+
+```bash
+cd ai-service
+```
+
+Create and activate a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Install the dependencies using the project's requirements file:
+
+```bash
+pip install -r requirements.txt
+```
+
+Return to the project root after installation.
+
+### 5. Start the Application
+
+Start the Python AI microservice:
+
+```bash
+uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+Start the Node.js backend:
+
+```bash
 npm start
 ```
 
-* **Frontend:** `http://localhost:5173`
-* **Backend API:** `http://localhost:5000`
-* **AI Service (FastAPI docs):** `http://localhost:8000/docs`
+Start the React frontend from its directory:
 
----
-
-### Starting Services Individually (Optional)
-```bash
-cd ai-service
-pip install -r requirements.txt
-python -m app.build_index          # Builds FAISS legal index from legal_corpus/
-uvicorn app.main:app --port 8000   # Starts API on http://localhost:8000
-```
-To run the automated benchmark evaluation:
-```bash
-python -m eval.run                 # Runs 16 dispute test suite, produces eval/results.md
-```
-
-### 2. Backend (Node.js & Express)
-```bash
-cd backend
-npm install
-npm run dev                        # Starts on http://localhost:5000
-```
-
-### 3. Frontend (React + Vite + Tailwind CSS)
 ```bash
 cd frontend
 npm install
-npm run dev                        # Starts on http://localhost:5173
+npm run dev
 ```
 
----
+Open the frontend in your browser:
 
-## 5. End-to-End Workflow Verification
+```text
+http://localhost:5173
+```
 
-1. **Party A (Claimant)** registers and creates a new dispute with title, category, and counterparty email.
-2. **Invite Link**: A single-use 7-day token is generated; Party A copies or emails the link.
-3. **Party B (Respondent)** logs in, views the preview, and accepts the dispute.
-4. **Confidential Submissions**:
-   - Both parties submit their statements and upload supporting evidence (receipts, chats, agreements).
-   - Strict confidentiality rule: Neither party can see the other party's statement or evidence before the evaluation.
-5. **AI Pipeline Evaluation**:
-   - As soon as both have submitted, either party clicks **"Trigger AI Evaluation"**.
-   - Node packages evidence and calls FastAPI `/decide`.
-   - Pipeline extracts facts, queries statutory index (FAISS), computes deterministic tripartite evidence scores ($\text{Relevance} \times \text{Reliability} \times \text{Corroboration}$ with probabilistic-OR aggregation), runs counterfactual swap-test for bias audit, and generates constrained reasoning.
-6. **Decision Report & Outcome**:
-   - Displays advisory disclaimer, overall verdict badge, confidence score meter, and suggested settlement.
-   - Expandable issue accordion displays party claims, score breakdown table, legal citations, and reasoning.
-   - Parties can formally **Accept** or **Reject** the outcome. If both accept, the dispute marks resolved and closes.
+*Note: Adjust the Python import path and npm commands if your actual package scripts or folder structure differ.*
 
 ---
 
-## 7. Production Deployment & Cloud MongoDB Atlas
+## ☁️ Database Configuration – MongoDB Atlas
 
-JurisAI is configured for production deployment with connection pooling, rate limiting, security headers, and Cloud MongoDB Atlas support.
+JurisAI uses MongoDB Atlas as its cloud database.
 
-### Cloud MongoDB Atlas Setup:
-1. Set your Atlas connection string in `.env` or `backend/.env`:
-   ```env
-   MONGO_URI=mongodb+srv://<username>:<password>@cluster0.abcde.mongodb.net/jurisai?retryWrites=true&w=majority
-   ```
-2. Whitelist `0.0.0.0/0` in Atlas **Network Access** to allow cloud hosting connections.
-3. Test the connection at any time:
-   ```bash
-   npm run test:db
-   ```
+To configure MongoDB Atlas:
 
-For detailed deployment instructions (Render, Railway, Docker, Vercel, unified or split setup), refer to [`DEPLOYMENT.md`](file:///c:/Users/aslam/OneDrive/Desktop/JURISAI/DEPLOYMENT.md).
+1. Create a MongoDB Atlas account.
+2. Create a new cluster.
+3. Create a database user.
+4. Configure the Network Access IP Access List.
+5. Copy the MongoDB connection string.
+6. Add the connection string to your environment variables.
 
+Example:
 
+```env
+MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@cluster.mongodb.net/jurisai
+```
+
+Replace the placeholders with your actual database credentials.
+
+---
+
+## 🌐 Deployment
+
+JurisAI is designed to support cloud deployment.
+
+### Deployment Platforms
+
+| Service | Purpose |
+|---|---|
+| GitHub | Source code repository |
+| Render | Backend and AI service hosting |
+| Vercel | Frontend hosting |
+| MongoDB Atlas | Cloud database |
+
+### Deployment Process
+
+1. Push the project source code to GitHub.
+2. Configure the required environment variables.
+3. Deploy the Node.js backend.
+4. Deploy the Python AI microservice.
+5. Deploy the React frontend.
+6. Configure frontend and backend API URLs.
+7. Connect the deployed backend to MongoDB Atlas.
+8. Verify all API endpoints and application workflows.
+
+Refer to [DEPLOYMENT.md](DEPLOYMENT.md) for deployment-specific instructions.
+
+---
+
+## 🔐 Security Considerations
+
+- Store sensitive credentials in environment variables.
+- Never expose API keys in frontend source code.
+- Configure CORS to allow only trusted frontend origins.
+- Validate incoming API requests.
+- Implement appropriate authentication and authorization.
+- Restrict access to uploaded evidence documents.
+- Use secure database credentials.
+- Enable HTTPS for production deployments.
+
+---
+
+## 🎯 Project Objectives
+
+- Make alternative dispute resolution more accessible.
+- Reduce the time and complexity involved in resolving small civil disputes.
+- Improve transparency in dispute evaluation.
+- Support objective evidence and financial analysis.
+- Provide AI-assisted compromise settlement recommendations.
+- Reduce unnecessary dependency on traditional court proceedings.
+
+---
+
+## ⚠️ Disclaimer
+
+JurisAI is an AI-assisted dispute resolution support platform. Its recommendations are intended for informational and settlement-support purposes only.
+
+AI-generated outputs may contain errors and should not be treated as legally binding judgments, professional legal advice, or guaranteed settlement outcomes. Final settlement decisions must be made by the concerned parties.
+
+---
+
+## 👨‍💻 Project Information
+
+**Project Name:** JurisAI
+
+**Project Category:** Artificial Intelligence / Legal Technology / Alternative Dispute Resolution
+
+**Architecture:** Full-Stack Web Application with AI Microservice
+
+**Database:** MongoDB Atlas
+
+**Development Status:** Preparing for Production Deployment
+
+---
+
+## 📜 License
+
+This project is developed for educational and research purposes. Add an appropriate open-source license before distributing it publicly.
+
+---
+
+**JurisAI – Making Dispute Resolution Smarter, Simpler, and More Accessible.**
