@@ -7,8 +7,8 @@ import mongoose from "mongoose";
 
 /**
  * Masks credentials in a MongoDB connection string for safe log output.
- * e.g. "mongodb+srv://user:secret123@cluster0.abc.mongodb.net/jurisai"
- *   -> "mongodb+srv://user:******@cluster0.abc.mongodb.net/jurisai"
+ * e.g. "mongodb+srv://<user>:<password>@<cluster>.mongodb.net/<dbname>"
+ *   -> "mongodb+srv://<user>:******@<cluster>.mongodb.net/<dbname>"
  */
 export const maskMongoUri = (uri) => {
   if (!uri || typeof uri !== "string") return "<undefined>";
